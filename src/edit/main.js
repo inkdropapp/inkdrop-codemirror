@@ -62,6 +62,10 @@ import { fromTextArea } from "./fromTextArea.js"
 
 CodeMirror.fromTextArea = fromTextArea
 
+import { detectBrowser } from "../util/browser.js"
+
+CodeMirror.detectBrowser = detectBrowser
+
 import { addLegacyProps } from "./legacy.js"
 
 addLegacyProps(CodeMirror)
