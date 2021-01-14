@@ -1,5 +1,5 @@
 {
-  "name": "@craftzdog/codemirror",
+  "name": "inkdrop-codemirror",
   "version": "5.59.1",
   "main": "lib/codemirror.js",
   "style": "lib/codemirror.css",
