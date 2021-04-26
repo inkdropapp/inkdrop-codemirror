@@ -350,8 +350,8 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
   function cpp11StringHook(stream, state) {
     stream.backUp(1);
     // Raw strings.
-    if (stream.match(/(R|u8R|uR|UR|LR)/)) {
-      var match = stream.match(/"([^\s\\()]{0,16})\(/);
+    if (stream.match(/^(?:R|u8R|uR|UR|LR)/)) {
+      var match = stream.match(/^"([^\s\\()]{0,16})\(/);
       if (!match) {
         return false;
       }
@@ -360,8 +360,8 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
       return tokenRawString(stream, state);
     }
     // Unicode strings/chars.
-    if (stream.match(/(u8|u|U|L)/)) {
-      if (stream.match(/["']/, /* eat */ false)) {
+    if (stream.match(/^(?:u8|u|U|L)/)) {
+      if (stream.match(/^["']/, /* eat */ false)) {
         return "string";
       }
       return false;
@@ -659,7 +659,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
       "file import where by get set abstract enum open inner override private public internal " +
       "protected catch finally out final vararg reified dynamic companion constructor init " +
       "sealed field property receiver param sparam lateinit data inline noinline tailrec " +
-      "external annotation crossinline const operator infix suspend actual expect setparam"
+      "external annotation crossinline const operator infix suspend actual expect setparam value"
     ),
     types: words(
       /* package java.lang */
