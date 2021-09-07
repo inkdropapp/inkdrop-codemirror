@@ -70,7 +70,7 @@
 <section class=first id=overview>
     <h2 style="position: relative">
       User manual and reference guide
-      <span style="color: #888; font-size: 1rem; position: absolute; right: 0; bottom: 0">version 5.59.1</span>
+      <span style="color: #888; font-size: 1rem; position: absolute; right: 0; bottom: 0">version 5.62.3</span>
     </h2>
 
     <p>CodeMirror is a code-editor component that can be embedded in
@@ -1320,6 +1320,8 @@ editor.setOption("extraKeys", {
       and <code>end</code> line numbers are given, the range
       from <code>start</code> up to (not including) <code>end</code>,
       and call <code>f</code> for each line, passing the line handle.
+      <code>eachLine</code> stops iterating if <code>f</code> returns
+      truthy value.
       This is a faster way to visit a range of line handlers than
       calling <a href="#getLineHandle"><code>getLineHandle</code></a>
       for each of them. Note that line handles have
@@ -1432,14 +1434,15 @@ editor.setOption("extraKeys", {
         stuck.</dd>
       </dl></dd>
 
-      <dt id="setSelections"><code><strong>doc.setSelections</strong>(ranges: array&lt;{anchor, head}&gt;, ?primary: integer, ?options: object)</code></dt>
+      <dt id="setSelections"><code><strong>doc.setSelections</strong>(ranges: array&lt;{anchor, ?head}&gt;, ?primary: integer, ?options: object)</code></dt>
       <dd>Sets a new set of selections. There must be at least one
       selection in the given array. When <code>primary</code> is a
       number, it determines which selection is the primary one. When
       it is not given, the primary index is taken from the previous
       selection, or set to the last range if the previous selection
       had less ranges than the new one. Supports the same options
-      as <a href="#setSelection"><code>setSelection</code></a>.</dd>
+      as <a href="#setSelection"><code>setSelection</code></a>.
+      <code>head</code> defaults to <code>anchor</code> when not given.</dd>
       <dt id="addSelection"><code><strong>doc.addSelection</strong>(anchor: {line, ch}, ?head: {line, ch})</code></dt>
       <dd>Adds a new selection to the existing set of selections, and
       makes it the primary selection.</dd>
@@ -2443,6 +2446,8 @@ editor.setOption("extraKeys", {
         <dl>
           <dt><strong><code>afterCursor</code></strong></dt>
           <dd>Only use the character after the start position, never the one before it.</dd>
+          <dt><strong><code>highlightNonMatching</code></strong></dt>
+          <dd>Also highlight pairs of non-matching as well as stray brackets. Enabled by default.</dd>
           <dt><strong><code>strict</code></strong></dt>
           <dd>Causes only matches where both brackets are at the same side of the start position to be considered.</dd>
           <dt><strong><code>maxScanLines</code></strong></dt>
@@ -2947,6 +2952,7 @@ editor.setOption("extraKeys", {
       By default, the linter will run (debounced) whenever the document is changed.
       You can pass a <code>lintOnChange: false</code> option to disable that.
       You can pass a <code>selfContain: true</code> option to render the tooltip inside the editor instance.
+      And a <code>highlightLines</code> option to add a style to lines that contain problems.
       Depends on <code>addon/lint/lint.css</code>. A demo can be
       found <a href="../demo/lint.html">here</a>.</dd>
 

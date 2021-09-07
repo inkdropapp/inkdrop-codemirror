@@ -1,3 +1,121 @@
+## 5.62.3 (2021-08-20)
+
+### Bug fixes
+
+Give the editor a `translate=no` attribute to prevent automatic translation from modifying its content.
+
+Give vim-style cursors a width that matches the character after them.
+
+[merge addon](https://codemirror.net/doc/manual.html#addon_merge): Make buttons keyboard-accessible.
+
+[emacs bindings](https://codemirror.net/demo/emacs.html): Fix by-page scrolling keybindings, which were accidentally inverted.
+
+## 5.62.2 (2021-07-21)
+
+### Bug fixes
+
+[lint addon](https://codemirror.net/doc/manual.html#addon_lint): Fix a regression that broke several addon options.
+
+## 5.62.1 (2021-07-20)
+
+### Bug fixes
+
+[vim bindings](https://codemirror.net/demo/vim.html): Make matching of upper-case characters more Unicode-aware.
+
+[lint addon](https://codemirror.net/doc/manual.html#addon_lint): Prevent options passed to the addon itself from being given to the linter.
+
+[show-hint addon](https://codemirror.net/doc/manual.html#addon_show-hint): Improve screen reader support.
+
+[search addon](https://codemirror.net/demo/search.html): Avoid using `innerHTML`.
+
+## 5.62.0 (2021-06-21)
+
+### Bug fixes
+
+Improve support for vim-style cursors in a number of themes.
+
+### New features
+
+[lint addon](https://codemirror.net/doc/manual.html#addon_lint): Add support for highlighting lines with errors or warnings.
+
+## 5.61.1 (2021-05-20)
+
+### Bug fixes
+
+Fix a bug where changing the editor's document could confuse text-direction management.
+
+Fix a bug in horizontally scrolling the cursor into view.
+
+Optimize adding lots of marks in a single transaction.
+
+[simple mode addon](https://codemirror.net/demo/simplemode.html): Support regexps with a unicode flag.
+
+[javascript mode](https://codemirror.net/mode/javascript/index.html): Add support for TypeScript template string types, improve integration with JSX mode.
+
+## 5.61.0 (2021-04-20)
+
+### Bug fixes
+
+Improve support for being in a shadow DOM in contenteditable mode.
+
+Prevent line number from being read by screen readers.
+
+[show-hint addon](https://codemirror.net/doc/manual.html#addon_show-hint): Fix a crash caused by a race condition.
+
+[javascript mode](https://codemirror.net/mode/javascript/): Improve scope tracking.
+
+### New features
+
+The library now emits an `"updateGutter"` event when the gutter width changes.
+
+[emacs bindings](https://codemirror.net/demo/emacs.html): Provide named commands for all bindings.
+
+## 5.60.0 (2021-03-20)
+
+### Bug fixes
+
+Fix autofocus feature in contenteditable mode.
+
+[simple mode addon](https://codemirror.net/demo/simplemode.html): Fix a null-dereference crash.
+
+[multiplex addon](https://codemirror.net/demo/multiplex.html): Make it possible to use `parseDelimiters` when both delimiters are the same.
+
+[julia mode](https://codemirror.net/mode/julia/): Fix a lockup bug.
+
+### New features
+
+`setSelections` now allows ranges to omit the `head` property when it is equal to `anchor`.
+
+[sublime bindings](https://codemirror.net/demo/sublime.html): Add support for reverse line sorting.
+
+## 5.59.4 (2021-02-24)
+
+### Bug fixes
+
+Give the scrollbar corner filler a background again, to prevent content from peeping through between the scrollbars.
+
+## 5.59.3 (2021-02-20)
+
+### Bug fixes
+
+Don't override the way zero-with non-joiners are rendered.
+
+Fix an issue where resetting the history cleared the `undoDepth` option's value.
+
+[vim bindings](https://codemirror.net/demo/vim.html): Fix substitute command when joining and splitting lines, fix global command when line number change, add support for `:vglobal`, properly treat caps lock as a modifier key.
+
+## 5.59.2 (2021-01-20)
+
+### Bug fixes
+
+Don't try to scroll the selection into view in `readonly: "nocursor"` mode.
+
+[closebrackets addon](https://codemirror.net/doc/manual.html#addon_closebrackets): Fix a regression in the behavior of pressing enter between brackets.
+
+[javascript mode](https://codemirror.net/mode/javascript/): Fix an infinite loop on specific syntax errors in object types.
+
+various modes: Fix inefficient RegExp matching.
+
 ## 5.59.1 (2020-12-31)
 
 ### Bug fixes
