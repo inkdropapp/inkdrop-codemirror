@@ -33,35 +33,35 @@ export let flipCtrlCmd = mac && (qtwebkit || presto && (presto_version == null |
 export let captureRightClick = gecko || (ie && ie_version >= 9)
 
 export function detectBrowser() {
-  userAgent = global.navigator.userAgent;
-  platform = global.navigator.platform;
+  userAgent = global.navigator.userAgent
+  platform = global.navigator.platform
 
-  gecko = /gecko\/\d/i.test(userAgent);
-  ie_upto10 = /MSIE \d/.test(userAgent);
-  ie_11up = /Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(userAgent);
-  edge = /Edge\/(\d+)/.exec(userAgent);
-  ie = ie_upto10 || ie_11up || edge;
-  ie_version = ie && (ie_upto10 ? document.documentMode || 6 : +(edge || ie_11up)[1]);
-  webkit = !edge && /WebKit\//.test(userAgent);
-  qtwebkit = webkit && /Qt\/\d+\.\d+/.test(userAgent);
-  chrome = !edge && /Chrome\//.test(userAgent);
-  presto = /Opera\//.test(userAgent);
-  safari = /Apple Computer/.test(navigator.vendor);
-  mac_geMountainLion = /Mac OS X 1\d\D([8-9]|\d\d)\D/.test(userAgent);
-  phantom = /PhantomJS/.test(userAgent);
+  gecko = /gecko\/\d/i.test(userAgent)
+  ie_upto10 = /MSIE \d/.test(userAgent)
+  ie_11up = /Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(userAgent)
+  edge = /Edge\/(\d+)/.exec(userAgent)
+  ie = ie_upto10 || ie_11up || edge
+  ie_version = ie && (ie_upto10 ? document.documentMode || 6 : +(edge || ie_11up)[1])
+  webkit = !edge && /WebKit\//.test(userAgent)
+  qtwebkit = webkit && /Qt\/\d+\.\d+/.test(userAgent)
+  chrome = !edge && /Chrome\//.test(userAgent)
+  presto = /Opera\//.test(userAgent)
+  safari = /Apple Computer/.test(navigator.vendor)
+  mac_geMountainLion = /Mac OS X 1\d\D([8-9]|\d\d)\D/.test(userAgent)
+  phantom = /PhantomJS/.test(userAgent)
 
-  ios = !edge && /AppleWebKit/.test(userAgent) && /Mobile\/\w+/.test(userAgent);
-  android = /Android/.test(userAgent);
+  ios = !edge && /AppleWebKit/.test(userAgent) && /Mobile\/\w+/.test(userAgent)
+  android = /Android/.test(userAgent)
   // This is woefully incomplete. Suggestions for alternative methods welcome.
-  mobile = ios || android || /webOS|BlackBerry|Opera Mini|Opera Mobi|IEMobile/i.test(userAgent);
-  mac = ios || /Mac/.test(platform);
-  chromeOS = /\bCrOS\b/.test(userAgent);
-  windows = /win/i.test(platform);
+  mobile = ios || android || /webOS|BlackBerry|Opera Mini|Opera Mobi|IEMobile/i.test(userAgent)
+  mac = ios || /Mac/.test(platform)
+  chromeOS = /\bCrOS\b/.test(userAgent)
+  windows = /win/i.test(platform)
 
-  presto_version = presto && userAgent.match(/Version\/(\d*\.\d*)/);
-  if (presto_version) { presto_version = Number(presto_version[1]); }
-  if (presto_version && presto_version >= 15) { presto = false; webkit = true; }
+  presto_version = presto && userAgent.match(/Version\/(\d*\.\d*)/)
+  if (presto_version) { presto_version = Number(presto_version[1]) }
+  if (presto_version && presto_version >= 15) { presto = false; webkit = true }
   // Some browsers use the wrong event properties to signal cmd/ctrl on OS X
-  flipCtrlCmd = mac && (qtwebkit || presto && (presto_version == null || presto_version < 12.11));
-  captureRightClick = gecko || (ie && ie_version >= 9);
+  flipCtrlCmd = mac && (qtwebkit || presto && (presto_version == null || presto_version < 12.11))
+  captureRightClick = gecko || (ie && ie_version >= 9)
 }
