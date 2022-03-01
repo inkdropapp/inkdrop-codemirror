@@ -1,6 +1,6 @@
 {
   "name": "inkdrop-codemirror",
-  "version": "5.62.3",
+  "version": "5.65.2",
   "main": "lib/codemirror.js",
   "style": "lib/codemirror.css",
   "author": {
